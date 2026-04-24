@@ -591,7 +591,7 @@
       }});
     }
 
-    els.$block.find('.header-search-mask').toggle();
+    els.$block.find('.header-search-mask').hide();
   }
 
   function searchFun(nodeObj) {
@@ -638,6 +638,7 @@
         els.$block.find('.header-search').addClass('search-icon-active');
         var innerEl = els.$searchForm.find('.header-search-form-container')[0];
         if (innerEl && motionSlideUpToBottom) motionSlideUpToBottom(innerEl, 200);
+        els.$block.find('.header-search-mask').show();
       }
     });
 
