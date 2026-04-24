@@ -148,7 +148,18 @@
       if (!block) return;
       var headerContent = els.$scope[0];
       var rect = headerContent ? headerContent.getBoundingClientRect() : block.getBoundingClientRect();
-      block.style.setProperty('--lea-header-bottom', rect.bottom + 'px');
+
+      var headerContainer = block.closest('.headerContainer');
+      var isFixed = headerContainer && headerContainer.classList.contains('headerFixedHover');
+      var bottom;
+      if (isFixed) {
+        var containerRect = headerContainer.getBoundingClientRect();
+        bottom = rect.bottom - containerRect.top;
+      } else {
+        bottom = rect.bottom;
+      }
+
+      block.style.setProperty('--lea-header-bottom', bottom + 'px');
       block.style.setProperty('--lea-header-height', rect.height + 'px');
     });
   }
