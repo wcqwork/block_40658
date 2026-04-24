@@ -4,12 +4,19 @@
 }
 
 
-[data-gjs-type="wrapper"] .block_share_40658 .share_container_40658{
+.block_share_40658 .share_container_40658{
     position: fixed !important;
     width: 100vw;
     left: 0;
     top: var(--lea-header-bottom) !important;
     transform: translateY(-100%) !important;
+}
+
+.block_40658 .search_39984 .header-search .header-search-form {
+    position: fixed !important;
+    width: 100vw;
+    left: 0;
+    top: var(--lea-header-bottom) !important;
 }
 
 

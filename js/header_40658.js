@@ -146,7 +146,8 @@
       var els = getBlockEls(nodeObj);
       var block = els.$block[0];
       if (!block) return;
-      var rect = block.getBoundingClientRect();
+      var headerContent = els.$scope[0];
+      var rect = headerContent ? headerContent.getBoundingClientRect() : block.getBoundingClientRect();
       block.style.setProperty('--lea-header-bottom', rect.bottom + 'px');
       block.style.setProperty('--lea-header-height', rect.height + 'px');
     });
@@ -159,8 +160,6 @@
    * 兜底：window scroll/resize 覆盖"尺寸不变但相对视口位置变化"的情况（如页头 sticky 时滚动）。
    */
   function installHeaderVarWatcher(nodeObj) {
-    if (!document.querySelector('div[data-gjs-type="wrapper"]')) return;
-
     var els = getBlockEls(nodeObj);
     var block = els.$block[0];
     if (!block) return;
@@ -474,8 +473,6 @@
           openOverlay();
           return;
         }
-        $shareContainer.css('position', 'absolute');
-        $shareContainer.css('top', '100%');
         openShareContainer(0);
         openOverlay();
       }
@@ -530,8 +527,6 @@
           event.preventDefault();
           event.stopPropagation();
         } else {
-          els.$shareContainer.css('position', 'absolute');
-          els.$shareContainer.css('top', '100%');
           openShareContainer();
         }
       });
