@@ -163,10 +163,14 @@
 
       block.style.setProperty('--lea-header-bottom', bottom + 'px');
       block.style.setProperty('--lea-header-height', rect.height + 'px');
-      if (block.scrollHeight > block.clientHeight) {
-        block.setAttribute('data-lea-overflow', '');
-      } else {
-        block.removeAttribute('data-lea-overflow');
+      var hasOverflow = block.scrollHeight > window.innerHeight * 0.61;
+      console.log('111111111',hasOverflow);
+      if (hasOverflow !== block.hasAttribute('data-lea-overflow')) {
+        if (hasOverflow) {
+          block.setAttribute('data-lea-overflow', '');
+        } else {
+          block.removeAttribute('data-lea-overflow');
+        }
       }
     });
   }

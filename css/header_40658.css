@@ -11,7 +11,7 @@
     height: 22px;
 }
 
-[data-gjs-type="wrapper"] .block_40658{
+[data-gjs-type="wrapper"] .block_40658[data-lea-overflow]{
     max-height: 61vh;
     overflow-y: auto;
     overflow-x: hidden;
