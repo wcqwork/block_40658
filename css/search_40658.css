@@ -14,7 +14,7 @@
     align-items: center;
     padding-bottom: 8px;
     border-bottom: 1px solid rgba(190, 190, 190, 1);
-    max-width: calc(var(--header-model-width) - 300px);
+    max-width: 100%;
 }
 
 .search_39984 .header-search {

@@ -3,6 +3,14 @@
   position: relative;
 }
 
+.block_40658 .ls_change_lang_container .ls_change_lang_btn .ls_change_lang_icon>div>div {
+    font-size: 16px;
+}
+.block_40658 .ls_change_lang_container .ls_change_lang_btn .ls_change_lang_icon>div>svg{
+    width: 22px;
+    height: 22px;
+}
+
 
 .block_share_40658 .share_container_40658{
     position: fixed !important;
@@ -68,8 +76,8 @@
     width: 100%;
     margin-right: auto;
     margin-left: auto;
-    padding-right: 40px;
-    padding-left: 40px;
+    /* padding-right: 40px;
+    padding-left: 40px; */
     box-sizing: border-box;
     flex-direction: column;
 }
@@ -233,9 +241,13 @@
 }
 
 .block_40658 .phone-clone-element{
+    display: none;
     margin: 16px;
 }
 @media (max-width: 768px) {
+    .block_40658 .phone-clone-element{
+        display: block;
+    }
     .alaboyulanguage .nav_40054 .navAlign_row .lea-nav-menu--main .lea-navMenu-depth0 {
         flex-direction: column-reverse;
     }
