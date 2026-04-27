@@ -87,8 +87,13 @@
     display: none !important;
 }
 .block_share_40658 .share_container_40658 {
-    transform: translateY(0px) !important;    
+    transform: translateY(0) !important;    
     overflow: hidden;
+    z-index: 99999;
+}
+
+[data-gjs-type="wrapper"] [data-lea-overflow] .block_share_40658 .share_container_40658{
+    transform: translateY(-100%) !important;   
 }
 .block_share_40658 .share_container_40658 .share-container-inner{
     opacity: 0;

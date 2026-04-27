@@ -11,6 +11,22 @@
     height: 22px;
 }
 
+[data-gjs-type="wrapper"] .block_40658{
+    max-height: 61vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 1px;
+}
+
+/* 隐藏态：用 display:none 彻底移出布局 */
+[data-gjs-type="wrapper"]  .nav_40658 {
+    overflow: hidden;
+}
+
+[data-gjs-type="wrapper"] .nav_40658 .navAlign_row .nav-main-pc{
+    display: none;
+}
+
 
 .block_share_40658 .share_container_40658{
     position: fixed !important;

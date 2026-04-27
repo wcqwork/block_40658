@@ -136,6 +136,7 @@
    * 把 .block_40658 的实时尺寸写入自身节点的 CSS 变量，供后续样式按需读取。
    *   --lea-header-bottom: 页头底边距视口顶的 px（= getBoundingClientRect().bottom）
    *   --lea-header-height: 页头当前高度 px（= rect.height）
+   *   data-lea-overflow: 内容溢出容器时挂载此属性，未溢出时移除
    * 纯埋点，不介入任何定位逻辑。
    */
   var _headerVarsRafId = 0;
@@ -149,18 +150,24 @@
       var headerContent = els.$scope[0];
       var rect = headerContent ? headerContent.getBoundingClientRect() : block.getBoundingClientRect();
 
+      var blockRect = block.getBoundingClientRect();
       var headerContainer = block.closest('.headerContainer');
       var isFixed = headerContainer && headerContainer.classList.contains('headerFixedHover');
       var bottom;
       if (isFixed) {
         var containerRect = headerContainer.getBoundingClientRect();
-        bottom = rect.bottom - containerRect.top;
+        bottom = Math.min(rect.bottom, blockRect.bottom) - containerRect.top;
       } else {
-        bottom = rect.bottom;
+        bottom = Math.min(rect.bottom, blockRect.bottom);
       }
 
       block.style.setProperty('--lea-header-bottom', bottom + 'px');
       block.style.setProperty('--lea-header-height', rect.height + 'px');
+      if (block.scrollHeight > block.clientHeight) {
+        block.setAttribute('data-lea-overflow', '');
+      } else {
+        block.removeAttribute('data-lea-overflow');
+      }
     });
   }
 
